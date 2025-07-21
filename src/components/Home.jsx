@@ -11,7 +11,7 @@ function Home() {
   };
 
   return (
-    <section id='Home'
+    <section id='home'
       className='min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden'
     >
       {/* Background decorative elements */}

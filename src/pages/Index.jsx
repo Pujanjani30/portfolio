@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react"
 import { Button } from '@/components/ui/button';
 import { ChevronUp } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Home from "@/components/Home";
+import { Navbar, Home, About, Skills } from "@/components/index.js"
 
 function Index() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -26,7 +25,10 @@ function Index() {
 
       <main>
         <Home />
+        <About />
+        <Skills />
       </main>
+
       {/* Footer */}
 
       {/* Scroll to top button */}
