@@ -72,3 +72,45 @@ export const softSkills = [
   { name: "Adaptability" },
   { name: "Creativity" }
 ];
+
+export const education = [
+  {
+    degree: "Bachelor of Technology in Computer Science & Engineering",
+    institution: "Silver Oak University",
+    year: "2022 - 2026",
+    grade: "Current CGPA: 9.52",
+    location: "Ahmedabad, India"
+  },
+  {
+    degree: "Higher Secondary Certificate",
+    institution: "S. S. Divine School",
+    year: "2021 - 2022",
+    grade: "66%",
+    location: "Ahmedabad, India"
+  },
+  {
+    degree: "Secondary School Certificate",
+    institution: "Shree Saraswati Shishu Mandir",
+    year: "2019 - 2020",
+    grade: "81%",
+    location: "Gondal, India"
+  },
+];
+
+export const experience = [
+  {
+    title: "Software Engineer Intern",
+    company: "Saeculum Solutions Pvt. Ltd.",
+    location: "Ahmedabad, India",
+    period: "Apr 2023 - Jan 2024",
+    type: "Internship",
+    description: [
+      "Contributed to the development of a production-level project, focusing on backend architecture.",
+      "Developed and maintained RESTful APIs using Node.js and Express.js, ensuring seamless integration with the frontend.",
+      "Managed and optimized database operations with MongoDB, improving data retrieval efficiency.",
+      "Implemented authentication and authorization mechanisms using JWT for secure user access.",
+      "Collaborated with a cross-functional team to debug issues and enhance application performance."
+    ],
+    technologies: ["Node.js", "Express.js", "MongoDB"],
+  },
+];
