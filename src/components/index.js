@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 
 export {
   Navbar,
@@ -11,5 +12,6 @@ export {
   About,
   Skills,
   Education,
-  Experience
+  Experience,
+  Projects,
 }

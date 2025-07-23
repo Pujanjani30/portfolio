@@ -114,3 +114,49 @@ export const experience = [
     technologies: ["Node.js", "Express.js", "MongoDB"],
   },
 ];
+
+export const projectCategories = [
+  "All",
+  "MERN",
+  "Frontend",
+  "Backend"
+];
+
+export const projects = [
+  {
+    title: "Orderify",
+    description: "Developed the backend for Orderify, an internal lunch ordering system for employees. Enabled features such as menu browsing, cart management, and order placement for users, while providing admins with tools to manage products and track orders. Frontend built with React.js and Tailwind CSS by team members.",
+    image: "🍽️",
+    technologies: ["Node.js", "Express.js", "MongoDB", "JWT"],
+    category: "Backend",
+    github: "https://github.com/Pujanjani30/Orderify",
+    demo: "https://orderify-lt47.onrender.com/api-docs"
+  },
+  {
+    title: "ZetoSearch",
+    description: "A lightweight Node.js full-text search library with support for multi-field indexing and TF-IDF ranking.",
+    image: "🔍",
+    technologies: ["Node.js", "TypeScript"],
+    category: "Backend",
+    github: "https://github.com/Pujanjani30/zeto-search",
+    demo: null
+  },
+  {
+    title: "DoList",
+    description: "DoList is my first React practice project — a full-stack to-do web app. It supports user authentication and full CRUD operations for to-dos.",
+    image: "📝",
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    category: "MERN",
+    github: "https://github.com/Pujanjani30/DoList",
+    demo: "https://dolistapp.vercel.app"
+  },
+  {
+    title: "BlueSky",
+    description: "A Modern Weather App that provides real-time weather updates and forecasts. Features include current weather conditions, 5-day forecasts, and location-based searches.",
+    image: "🌤️",
+    technologies: ["React.js", "Tailwind CSS", "OpenWeatherMap API"],
+    category: "Frontend",
+    github: "https://github.com/Pujanjani30/BlueSky",
+    demo: "https://blueskyapp.vercel.app"
+  },
+]
