@@ -2,16 +2,27 @@ import { ExternalLink, Github, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { projects, projectCategories } from '@/data';
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Projects() {
   const [expandedCards, setExpandedCards] = useState({});
+  const [currentCategory, setCurrentCategory] = useState('All');
+  const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const toggleExpanded = (index) => {
     setExpandedCards(prev => ({
       ...prev,
       [index]: !prev[index]
     }));
+  };
+
+  const filterProjects = (category) => {
+    setCurrentCategory(category);
+
+    const filtered = projects.filter(project =>
+      category === 'All' ? true : project.category === category
+    );
+    setFilteredProjects(filtered);
   };
 
   return (
@@ -33,7 +44,13 @@ function Projects() {
             <Button
               key={category}
               variant="outline"
-              className="border-slate-600/50 bg-slate-800/50 text-slate-300 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 backdrop-blur-sm"
+              className={`border-slate-600/50 bg-slate-800/50 text-slate-300 
+              hover:bg-slate-600 hover:text-white hover:border-transparent 
+              transition-all duration-300 backdrop-blur-sm ${currentCategory === category
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                  : ''}`
+              }
+              onClick={() => filterProjects(category)}
             >
               {category}
             </Button>
@@ -42,7 +59,7 @@ function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <Card key={index}
               className="relative p-0 bg-gradient-to-br from-slate-900/90 to-slate-800/90 
               backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-slate-500/50 

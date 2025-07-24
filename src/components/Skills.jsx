@@ -33,9 +33,10 @@ function Skills() {
                   <Badge
                     key={index}
                     variant={skill.featured ? "default" : "secondary"}
-                    className={`px-3 py-1 text-sm transition-all duration-200 hover:scale-110 ${skill.featured
-                      ? `bg-gradient-to-r ${category.color} text-white hover:shadow-lg border-0`
-                      : "bg-slate-700 text-slate-300 hover:bg-slate-600 border-slate-600"
+                    className={`px-3 py-1 text-sm transition-all duration-200 hover:scale-110 cursor-default
+                      ${skill.featured
+                        ? `bg-gradient-to-r ${category.color} text-white hover:shadow-lg border-0`
+                        : "bg-slate-700 text-slate-300 hover:bg-slate-600 border-slate-600"
                       }`}
                   >
                     {skill.name}
@@ -65,7 +66,11 @@ function Skills() {
               >
                 <Badge
                   variant="outline"
-                  className="w-full justify-center bg-gradient-to-br from-slate-800/80 to-slate-900/80 text-slate-300 hover:text-white border-slate-600/50 hover:border-orange-400/50 px-4 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-400/10 group-hover:bg-gradient-to-br group-hover:from-orange-500/10 group-hover:to-pink-500/10"
+                  className="w-full justify-center bg-gradient-to-br from-slate-800/80 to-slate-900/80
+                   text-slate-300 hover:text-white border-slate-600/50 hover:border-orange-400/50
+                    px-4 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 
+                    hover:shadow-lg hover:shadow-orange-400/10 group-hover:bg-gradient-to-br
+                     group-hover:from-orange-500/10 group-hover:to-pink-500/10 cursor-default"
                 >
                   {skill.name}
                 </Badge>

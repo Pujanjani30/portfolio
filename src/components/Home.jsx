@@ -91,18 +91,22 @@ function Home() {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-8 mt-16 animate-fade-in">
-            <a
-              href={socialLinks[0].href}
-              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-400 hover:text-blue-400 hover:border-blue-400/50 hover:bg-blue-400/10 transition-all duration-300 hover:scale-110"
+            <div
+              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50 
+              text-slate-400 hover:text-blue-400 hover:border-blue-400/50 hover:bg-blue-400/10
+               transition-all duration-300 hover:scale-110 cursor-pointer"
+              onClick={() => window.open(socialLinks.github, '_blank')}
             >
               <Github className="h-6 w-6" />
-            </a>
-            <a
-              href={socialLinks[1].href}
-              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-400 hover:text-blue-500 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 hover:scale-110"
+            </div>
+            <div
+              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50
+               text-slate-400 hover:text-blue-500 hover:border-blue-500/50 hover:bg-blue-500/10 
+               transition-all duration-300 hover:scale-110 cursor-pointer"
+              onClick={() => window.open(socialLinks.linkedin, '_blank')}
             >
               <Linkedin className="h-6 w-6" />
-            </a>
+            </div>
           </div>
 
           {/* Scroll indicator */}

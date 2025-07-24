@@ -86,7 +86,10 @@ function Experience() {
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 bg-gradient-to-r from-slate-700 to-slate-800 text-slate-300 rounded-full text-xs font-medium border border-slate-600/50 hover:border-cyan-400/50 hover:text-white transition-all duration-200"
+                          className="px-2 py-1 bg-gradient-to-r from-slate-700 to-slate-800
+                           text-slate-300 rounded-full text-xs font-medium border
+                            border-slate-600/50 hover:border-cyan-400/50 hover:text-white
+                             transition-all duration-200 cursor-default"
                         >
                           {tech}
                         </span>
