@@ -1,10 +1,12 @@
-import Navbar from "@/components/Navbar";
-import Home from "@/components/Home";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
+import Navbar from "./Navbar";
+import Home from "./Home";
+import About from "./About";
+import Skills from "./Skills";
+import Education from "./Education";
+import Experience from "./Experience";
+import Projects from "./Projects";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 export {
   Navbar,
@@ -14,4 +16,6 @@ export {
   Education,
   Experience,
   Projects,
+  Contact,
+  Footer,
 }

@@ -8,16 +8,11 @@ export const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export const socialLinks = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com/pujanjani30'
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/pujanjani',
-  }
-];
+export const socialLinks = {
+  github: 'https://github.com/pujanjani30',
+  linkedin: 'https://www.linkedin.com/in/pujanjani',
+
+};
 
 export const techSkills = [
   {
@@ -160,3 +155,8 @@ export const projects = [
     demo: "https://blueskyapp.vercel.app"
   },
 ]
+
+export const contactDetails = {
+  email: "pujanjani30@gmail.com",
+  location: "Ahmedabad, India"
+}
