@@ -1,49 +1,69 @@
-import { GraduationCap, Calendar, MapPin, Star } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, Star, Terminal } from 'lucide-react';
 import { education } from '@/data';
 
 function Education() {
   return (
-    <section id="education" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-              Education
-            </span>
+    <section id="education" className="py-20 px-4 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-block bg-slate-900/60 border-l-4 border-emerald-500 px-4 py-2 mb-4 backdrop-blur-sm">
+            <h2 className="text-sm font-mono text-emerald-400">
+              <Terminal className="inline h-4 w-4 mr-2" />
+              ./education.sh
+            </h2>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-mono">
+            <span className="text-emerald-400">Academic</span>{' '}
+            <span className="text-slate-200">Journey</span>
           </h2>
-          <p className="text-slate-400 text-base mb-4">Academic background and continuous learning journey</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-emerald-500 mx-auto"></div>
         </div>
 
-        <div className="overflow-x-auto pb-4">
-          <div className="flex justify-center space-x-8 min-w-max">
+        <div className="overflow-x-auto pb-4 scrollbar-hide">
+          <div className="flex justify-center gap-6 min-w-max px-4">
             {education.map((edu, index) => (
-              <div key={index} className="flex-shrink-0 w-96 group">
-                <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group-hover:transform group-hover:scale-[1.02] shadow-xl h-full">
-                  {/* Header */}
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 via-blue-400 to-purple-600 flex items-center justify-center shadow-lg">
-                      <GraduationCap className="h-6 w-6 text-white" />
+              <div key={index} className="flex-shrink-0 w-96">
+                <div className="group bg-slate-950/80 border border-slate-800 hover:border-emerald-500/50 rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:transform hover:scale-[1.02] h-full">
+                  {/* Terminal header */}
+                  <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border-b border-slate-800">
+                    <Terminal className="h-3 w-3 text-emerald-400" />
+                    <span className="text-xs text-slate-500 font-mono">
+                      education-{index + 1}.log
+                    </span>
+                    <div className="ml-auto">
+                      <GraduationCap className="h-4 w-4 text-emerald-400" />
                     </div>
                   </div>
 
-                  <div className="text-center mb-4">
-                    <h3 className="text-lg font-bold text-white mb-2 leading-tight">{edu.degree}</h3>
-                    <div className="text-base text-emerald-400 font-semibold mb-2">{edu.institution}</div>
-                    <div className="flex items-center justify-center text-blue-400 font-medium mb-2">
-                      <Star className="h-3 w-3 mr-1" />
-                      <span className="text-sm">{edu.grade}</span>
+                  <div className="p-6">
+                    <div className="mb-4">
+                      <h3 className="text-base font-bold text-slate-200 mb-2 leading-tight font-mono">
+                        <span className="text-slate-600">&gt;</span> {edu.degree}
+                      </h3>
+                      <div className="text-sm text-emerald-400 font-semibold font-mono mb-3">
+                        {edu.institution}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex justify-center space-x-2 mb-4">
-                    <div className="flex items-center text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full text-xs">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      <span>{edu.year}</span>
-                    </div>
-                    <div className="flex items-center text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full text-xs">
-                      <MapPin className="h-3 w-3 mr-1" />
-                      <span>{edu.location}</span>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 px-3 py-2 bg-slate-900/50 border border-slate-800 rounded-lg">
+                        <Star className="h-3 w-3 text-yellow-400" />
+                        <span className="text-xs font-mono text-slate-300">{edu.grade}</span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center gap-2 px-3 py-2 bg-slate-900/50 border border-slate-800 rounded-lg">
+                          <Calendar className="h-3 w-3 text-blue-400" />
+                          <span className="text-xs font-mono text-slate-400">{edu.year}</span>
+                        </div>
+                        <div className="flex items-center gap-2 px-3 py-2 bg-slate-900/50 border border-slate-800 rounded-lg">
+                          <MapPin className="h-3 w-3 text-purple-400" />
+                          <span className="text-xs font-mono text-slate-400">{edu.location}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -52,8 +72,8 @@ function Education() {
           </div>
         </div>
       </div>
-    </section >
-  )
+    </section>
+  );
 }
 
 export default Education;

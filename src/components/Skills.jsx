@@ -1,86 +1,135 @@
-import { techSkills, softSkills } from '@/data'
-import { Badge } from './ui/badge'
+import { techSkills, softSkills } from '@/data';
+import { Terminal, Code2 } from 'lucide-react';
 
 function Skills() {
   return (
-    <section id="skills" className="py-20 px-4 bg-slate-800/50">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-20 px-4 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-              Skills & Technologies
-            </span>
+          <div className="inline-block bg-slate-900/60 border-l-4 border-emerald-500 px-4 py-2 mb-4 backdrop-blur-sm">
+            <h2 className="text-sm font-mono text-emerald-400">
+              <Code2 className="inline h-4 w-4 mr-2" />
+              ./skills.sh --list
+            </h2>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-mono">
+            <span className="text-emerald-400">Tech</span>{' '}
+            <span className="text-slate-200">Arsenal</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-emerald-500 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        {/* Technical Skills */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {techSkills.map((category, index) => (
             <div
               key={index}
-              className={`${category.bgColor} backdrop-blur-sm rounded-2xl p-6 border transition-all 
-            duration-300 hover:scale-105 hover:shadow-2xl`}
+              className="group bg-slate-950/80 border border-slate-800 hover:border-emerald-500/50 rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)]"
             >
-              <h3
-                className={`text-2xl font-bold mb-6 bg-gradient-to-r 
-              ${category.color} bg-clip-text text-transparent text-center`}
-              >
-                {category.title}
-              </h3>
+              {/* Terminal header */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border-b border-slate-800">
+                <Terminal className="h-4 w-4 text-emerald-400" />
+                <span className="text-xs text-slate-400 font-mono">
+                  {category.title.toLowerCase()}.sh
+                </span>
+                <div className="ml-auto flex gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+                  <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+                  <div className="w-2 h-2 rounded-full bg-emerald-500/50 group-hover:bg-emerald-500 transition-colors"></div>
+                </div>
+              </div>
 
-              <div className="flex flex-wrap gap-2 justify-center">
-                {category.skills.map((skill, index) => (
-                  <Badge
-                    key={index}
-                    variant={skill.featured ? "default" : "secondary"}
-                    className={`px-3 py-1 text-sm transition-all duration-200 hover:scale-110 cursor-default
-                      ${skill.featured
-                        ? `bg-gradient-to-r ${category.color} text-white hover:shadow-lg border-0`
-                        : "bg-slate-700 text-slate-300 hover:bg-slate-600 border-slate-600"
-                      }`}
-                  >
-                    {skill.name}
-                  </Badge>
-                ))}
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-6 font-mono text-emerald-400">
+                  <span className="text-slate-600">&gt;</span> {category.title}
+                </h3>
+
+                <div className="space-y-3">
+                  {category.skills.map((skill, idx) => (
+                    <div
+                      key={idx}
+                      className={`group/skill flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 font-mono text-sm
+                        ${skill.featured 
+                          ? 'bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 hover:border-emerald-500/50' 
+                          : 'bg-slate-900/50 border border-slate-800 hover:bg-slate-800/80 hover:border-slate-700'
+                        }`}
+                    >
+                      <span className={`text-xs ${skill.featured ? 'text-emerald-400' : 'text-slate-600'}`}>
+                        {skill.featured ? '●' : '○'}
+                      </span>
+                      <span className={`flex-1 ${skill.featured ? 'text-emerald-300 font-semibold' : 'text-slate-400'}`}>
+                        {skill.name}
+                      </span>
+                      {skill.featured && (
+                        <span className="text-[10px] text-emerald-500/70 uppercase tracking-wider">
+                          core
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Enhanced Other Technologies Section */}
-        <div className="bg-slate-800/30 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-3">
-              <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Soft Skills
-              </span>
-            </h3>
-            {/* <p className="text-slate-400 text-sm">Additional tools and technologies I work with</p> */}
+        {/* Soft Skills */}
+        <div className="bg-slate-950/80 border border-slate-800 rounded-xl overflow-hidden backdrop-blur-sm">
+          {/* Terminal header */}
+          <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border-b border-slate-800">
+            <Terminal className="h-4 w-4 text-orange-400" />
+            <span className="text-xs text-slate-400 font-mono">soft-skills.sh</span>
+            <div className="ml-auto">
+              <span className="text-xs text-slate-600 font-mono">5 attributes loaded</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            {softSkills.map((skill, index) => (
-              <div
-                key={index}
-                className="group relative"
-              >
-                <Badge
-                  variant="outline"
-                  className="w-full justify-center bg-gradient-to-br from-slate-800/80 to-slate-900/80
-                   text-slate-300 hover:text-white border-slate-600/50 hover:border-orange-400/50
-                    px-4 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 
-                    hover:shadow-lg hover:shadow-orange-400/10 group-hover:bg-gradient-to-br
-                     group-hover:from-orange-500/10 group-hover:to-pink-500/10 cursor-default"
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-6 font-mono text-orange-400">
+              <span className="text-slate-600">&gt;</span> Professional Skills
+            </h3>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+              {softSkills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="group/skill relative"
                 >
-                  {skill.name}
-                </Badge>
-                <div className="absolute inset-0 rounded-md bg-gradient-to-r from-orange-400/0 via-pink-400/0 to-purple-400/0 group-hover:from-orange-400/5 group-hover:via-pink-400/5 group-hover:to-purple-400/5 transition-all duration-300 pointer-events-none"></div>
+                  {/* Progress bar background */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-800 rounded-b-lg">
+                    <div className="h-full bg-gradient-to-r from-orange-500 to-pink-500 rounded-b-lg group-hover/skill:animate-pulse"></div>
+                  </div>
+                  
+                  <div className="bg-slate-900/50 border border-slate-800 hover:border-orange-500/50 rounded-lg p-4 text-center transition-all duration-300 hover:bg-slate-800/80 hover:shadow-[0_0_15px_rgba(249,115,22,0.1)]">
+                    <span className="text-sm font-mono text-slate-300 group-hover/skill:text-orange-400 transition-colors">
+                      {skill.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Command output */}
+            <div className="mt-6 bg-slate-900/50 border border-slate-800 rounded-lg p-4">
+              <div className="font-mono text-xs text-slate-500 space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-emerald-400">✓</span>
+                  <span>All skills verified and operational</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-orange-400">→</span>
+                  <span>Ready for collaboration and teamwork</span>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-export default Skills
+
+export default Skills;

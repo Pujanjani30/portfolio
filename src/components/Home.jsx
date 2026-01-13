@@ -1,123 +1,194 @@
-import { Download, Mail, Github, Linkedin } from 'lucide-react';
+import { Download, Mail, Github, Linkedin, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/data';
+import { useEffect, useState } from 'react';
 
 function Home() {
+  const [displayText, setDisplayText] = useState('');
+  const fullText = 'Backend Developer';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    document.querySelector('#contact')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   };
 
   return (
-    <section id='home'
+    <section
+      id='home'
       className='min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden'
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/20"></div>
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Matrix-style background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-slate-950 to-slate-950"></div>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]"></div>
+
+      {/* Animated code blocks */}
+      <div className="absolute top-20 left-10 opacity-10 font-mono text-emerald-500/50 text-sm animate-pulse">
+        <code>{'{'}<br />
+          &nbsp;&nbsp;"status": "active",<br />
+          &nbsp;&nbsp;"ready": true<br />
+          {'}'}</code>
+      </div>
+
+      <div className="absolute bottom-20 right-10 opacity-10 font-mono text-emerald-500/50 text-sm animate-pulse delay-700">
+        <code>
+          {`const dev = () => {
+            return 'code';
+          }`}
+        </code>
+      </div>
 
       <div className='max-w-5xl mx-auto text-center relative z-10'>
-        <div className='space-y-8 animate-fade-in'>
+        <div className='space-y-8'>
+          {/* Terminal-style header */}
+          <div className="inline-block bg-slate-900/80 border border-emerald-500/30 rounded-lg px-4 py-2 mb-4 backdrop-blur-sm">
+            <div className="flex items-center gap-2 text-emerald-400 font-mono text-sm">
+              <Terminal className="h-4 w-4" />
+              <span>~/portfolio</span>
+              <span className="text-slate-600">$</span>
+              <span className="text-slate-400">whoami</span>
+            </div>
+          </div>
 
-          {/* Main heading */}
-          <div className='space-y-8'>
-            <h1 className='text-6xl md:text-8xl font-bold tracking-tight'>
-              <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 bg-clip-text text-transparent animate-gradient'>
-                Pujan Jani
+          {/* Main heading with glitch effect */}
+          <div className='space-y-6'>
+            <h1 className='text-6xl md:text-8xl font-bold tracking-tight font-mono relative'>
+              <span className='relative inline-block text-emerald-400'>
+                {'<'}Pujan Jani{' />'}
+                <span className="absolute inset-0 text-emerald-500 opacity-50 blur-sm">
+                  {'<'}Pujan Jani{' />'}
+                </span>
               </span>
             </h1>
 
             <div className="relative">
-              <h2 className="text-3xl md:text-4xl text-slate-200 font-light mb-2">
-                MERN Stack Developer
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+              <div className="inline-block bg-slate-900/60 border-l-4 border-emerald-500 px-6 py-3 backdrop-blur-sm">
+                <h2 className="text-2xl md:text-3xl text-slate-200 font-mono">
+                  <span className="text-emerald-500">&gt;_</span> {displayText}
+                  <span className="inline-block w-2 h-6 bg-emerald-500 ml-1 animate-pulse"></span>
+                </h2>
+              </div>
             </div>
           </div>
 
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-            Building full-stack experiences with
-            <span className="text-emerald-500 font-medium"> MongoDB</span>,
-            <span className="text-yellow-400 font-medium"> Express</span>,
-            <span className="text-blue-400 font-medium"> React</span>, and
-            <span className="text-lime-400 font-medium"> Node.js</span>
-          </p>
-
-          {/* Tech stack visual indicators */}
-          {/* <div className="flex justify-center items-center gap-6 py-6">
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-slate-300 text-sm font-medium">MongoDB</span>
+          {/* Tech stack with code syntax */}
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-6 backdrop-blur-sm font-mono text-sm md:text-base">
+              <div className="flex items-start gap-2 text-left">
+                <div className="flex-1">
+                <span className="text-slate-600 select-none">1</span>
+                  <span className="text-purple-400 ml-4">const</span>{' '}
+                  <span className="text-emerald-400">techStack</span>{' '}
+                  <span className="text-slate-400">=</span>{' '}
+                  <span className="text-yellow-400">{'{'}</span>
+                  <br />
+                  <span className="text-slate-600 select-none">2</span>
+                  <span className="text-sky-400 ml-10">backend</span>
+                  <span className="text-slate-400">:</span>{' '}
+                  <span className="text-orange-400">[</span>
+                  <span className="text-emerald-300">'Node.js'</span>
+                  <span className="text-slate-400">,</span>{' '}
+                  <span className="text-emerald-300">'Express.js'</span>
+                  <span className="text-slate-400">,</span>{' '}
+                  <span className="text-emerald-300">'MongoDB'</span>
+                  <span className="text-slate-400">,</span>{' '}
+                  <span className="text-emerald-300">'Python'</span>
+                  <span className="text-orange-400">]</span>
+                  <span className="text-slate-400">,</span>
+                  <br />
+                  <span className="text-slate-600 select-none">3</span>
+                  <span className="text-sky-400 ml-10">frontend</span>
+                  <span className="text-slate-400">:</span>{' '}
+                  <span className="text-orange-400">[</span>
+                  <span className="text-emerald-300">'React'</span>
+                  <span className="text-slate-400">,</span>{' '}
+                  <span className="text-emerald-300">'Tailwind CSS'</span>
+                  <span className="text-orange-400">]</span>
+                  <br />
+                  <span className="text-slate-600 select-none">4</span>
+                  <span className="text-yellow-400 ml-4">{'}'}</span>
+                  <span className="text-slate-400">;</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <div className="w-3 h-3 bg-gray-400 rounded-full animate-pulse delay-200"></div>
-              <span className="text-slate-300 text-sm font-medium">Express</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse delay-400"></div>
-              <span className="text-slate-300 text-sm font-medium">React</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-slate-700/50">
-              <div className="w-3 h-3 bg-green-600 rounded-full animate-pulse delay-600"></div>
-              <span className="text-slate-300 text-sm font-medium">Node.js</span>
-            </div>
-          </div> */}
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12 animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-blue-600/25 hover:scale-105 border-0 cursor-pointer"
-              onClick={() => window.open('/Pujan_Jani_Resume.pdf', '_blank')}
+              className="bg-emerald-600 hover:bg-emerald-700 text-slate-950 px-8 py-6 text-lg font-mono font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:scale-105 border-0 group relative overflow-hidden"
+              onClick={() => window.open('/Pujan_Jani_Backend_Dev_Resume.pdf', '_blank')}
             >
-              <Download className="mr-3 h-5 w-5" />
-              Download Resume
+              <span className="absolute inset-0 bg-emerald-400 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500"></span>
+              <Download className="mr-2 h-5 w-5 relative z-10" />
+              <span className="relative z-10">Download Resume</span>
             </Button>
 
             <Button
               size="lg"
               variant="outline"
               onClick={scrollToContact}
-              className="border-2 border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-500 px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 bg-transparent cursor-pointer"
+              className="border-2 border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 hover:border-emerald-400 px-8 py-6 text-lg font-mono font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:scale-105 bg-transparent"
             >
-              <Mail className="mr-3 h-5 w-5" />
+              <Mail className="mr-2 h-5 w-5" />
               Get In Touch
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-8 mt-16 animate-fade-in">
-            <div
-              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50 
-              text-slate-400 hover:text-blue-400 hover:border-blue-400/50 hover:bg-blue-400/10
-               transition-all duration-300 hover:scale-110 cursor-pointer"
-              onClick={() => window.open(socialLinks.github, '_blank')}
-            >
-              <Github className="h-6 w-6" />
-            </div>
-            <div
-              className="group p-3 rounded-full bg-slate-800/50 border border-slate-700/50
-               text-slate-400 hover:text-blue-500 hover:border-blue-500/50 hover:bg-blue-500/10 
-               transition-all duration-300 hover:scale-110 cursor-pointer"
-              onClick={() => window.open(socialLinks.linkedin, '_blank')}
-            >
-              <Linkedin className="h-6 w-6" />
-            </div>
+          {/* Social Links with terminal style */}
+          <div className="flex justify-center gap-6 mt-16">
+            {[
+              { icon: Github, url: socialLinks.github, label: 'github' },
+              { icon: Linkedin, url: socialLinks.linkedin, label: 'linkedin' }
+            ].map(({ icon: Icon, url, label }) => (
+              <button
+                key={label}
+                onClick={() => window.open(url, '_blank')}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-emerald-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative px-6 py-3 bg-slate-900/80 border border-slate-700 hover:border-emerald-500/50 rounded-lg transition-all duration-300 backdrop-blur-sm">
+                  <div className="flex items-center gap-2">
+                    <Icon className="h-5 w-5 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                    <span className="text-slate-400 group-hover:text-emerald-400 font-mono text-sm transition-colors">
+                      /{label}
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
 
-          {/* Scroll indicator */}
-          {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
-              <div className="w-1 h-2 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
+          {/* Status indicator */}
+          <div className="mt-12 inline-flex items-center gap-2 px-4 py-2 bg-slate-900/60 border border-slate-800 rounded-full backdrop-blur-sm">
+            <div className="relative">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
             </div>
-          </div> */}
+            <span className="text-slate-400 text-sm font-mono">Available for opportunities</span>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-export default Home
+
+export default Home;

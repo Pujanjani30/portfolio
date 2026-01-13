@@ -16,17 +16,14 @@ export const socialLinks = {
 
 export const techSkills = [
   {
-    title: "Frontend",
+    title: "Languages",
     skills: [
       { name: "JavaScript", featured: true },
-      { name: "React.js", featured: true },
+      { name: "Python", featured: false },
       { name: "TypeScript", featured: false },
-      { name: "HTML5", featured: true },
-      { name: "CSS3", featured: true },
-      { name: "Tailwind CSS", featured: false }
     ],
-    color: "from-blue-400 to-cyan-400",
-    bgColor: "bg-blue-500/10 border-blue-500/20"
+    // color: "from-blue-400 to-cyan-400",
+    // bgColor: "bg-blue-500/10 border-blue-500/20"
   },
   {
     title: "Backend",
@@ -34,29 +31,33 @@ export const techSkills = [
       { name: "Node.js", featured: true },
       { name: "Express.js", featured: true },
       { name: "MongoDB", featured: true },
-      { name: "PostgreSQL", featured: false },
-      { name: "Prisma", featured: true },
-      { name: "REST APIs", featured: false },
-      { name: "JWT", featured: false },
-      { name: "Cloudinary", featured: false },
-      { name: "Swagger", featured: false }
+      { name: "REST APIs", featured: true },
+      { name: "SQL", featured: false },
+      { name: "FastAPI", featured: false },
     ],
-    color: "from-green-400 to-emerald-400",
-    bgColor: "bg-green-500/10 border-green-500/20"
+    // color: "from-green-400 to-emerald-400",
+    // bgColor: "bg-green-500/10 border-green-500/20"
+  },
+  {
+    title: "Frontend",
+    skills: [
+      { name: "React.js", featured: true },
+      { name: "HTML5", featured: true },
+      { name: "CSS3", featured: true },
+      { name: "Tailwind CSS", featured: false },
+    ],
+    // color: "from-blue-400 to-cyan-400",
+    // bgColor: "bg-blue-500/10 border-blue-500/20"
   },
   {
     title: "Dev Tools",
     skills: [
       { name: "GitHub", featured: true },
-      { name: "Docker", featured: false },
-      { name: "Vercel", featured: true },
       { name: "Postman", featured: true },
       { name: "VS Code", featured: true },
-      { name: "Figma", featured: false },
-      { name: "Canva", featured: false }
     ],
-    color: "from-purple-400 to-pink-400",
-    bgColor: "bg-purple-500/10 border-purple-500/20"
+    // color: "from-purple-400 to-pink-400",
+    // bgColor: "bg-purple-500/10 border-purple-500/20"
   }
 ];
 
@@ -64,8 +65,8 @@ export const softSkills = [
   { name: "Communication" },
   { name: "Teamwork" },
   { name: "Problem-solving" },
-  { name: "Adaptability" },
-  { name: "Creativity" }
+  { name: "Curiosity" },
+  { name: "Adaptability" }
 ];
 
 export const education = [
@@ -73,7 +74,7 @@ export const education = [
     degree: "Bachelor of Technology in Computer Science & Engineering",
     institution: "Silver Oak University",
     year: "2022 - 2026",
-    grade: "Current CGPA: 9.52",
+    grade: "Current CGPA: 9.33",
     location: "Ahmedabad, India"
   },
   {
@@ -112,8 +113,8 @@ export const experience = [
 
 export const projectCategories = [
   "All",
-  "MERN",
-  "Frontend",
+  // "MERN",
+  // "Frontend",
   "Backend"
 ];
 
@@ -136,24 +137,24 @@ export const projects = [
     github: "https://github.com/Pujanjani30/zeto-search",
     demo: null
   },
-  {
-    title: "DoList",
-    description: "DoList is my first React practice project — a full-stack to-do web app. It supports user authentication and full CRUD operations for to-dos.",
-    image: "📝",
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    category: "MERN",
-    github: "https://github.com/Pujanjani30/DoList",
-    demo: "https://dolistapp.vercel.app"
-  },
-  {
-    title: "BlueSky",
-    description: "A Modern Weather App that provides real-time weather updates and forecasts. Features include current weather conditions, 5-day forecasts, and location-based searches.",
-    image: "🌤️",
-    technologies: ["React.js", "Tailwind CSS", "OpenWeatherMap API"],
-    category: "Frontend",
-    github: "https://github.com/Pujanjani30/BlueSky",
-    demo: "https://blueskyapp.vercel.app"
-  },
+  // {
+  //   title: "DoList",
+  //   description: "DoList is my first React practice project — a full-stack to-do web app. It supports user authentication and full CRUD operations for to-dos.",
+  //   image: "📝",
+  //   technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+  //   category: "MERN",
+  //   github: "https://github.com/Pujanjani30/DoList",
+  //   demo: "https://dolistapp.vercel.app"
+  // },
+  // {
+  //   title: "BlueSky",
+  //   description: "A Modern Weather App that provides real-time weather updates and forecasts. Features include current weather conditions, 5-day forecasts, and location-based searches.",
+  //   image: "🌤️",
+  //   technologies: ["React.js", "Tailwind CSS", "OpenWeatherMap API"],
+  //   category: "Frontend",
+  //   github: "https://github.com/Pujanjani30/BlueSky",
+  //   demo: "https://blueskyapp.vercel.app"
+  // },
 ]
 
 export const contactDetails = {

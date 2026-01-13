@@ -126,7 +126,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -134,10 +134,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, #00ce8c, #00ce8c);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, #00ce8c, #00ce8c);
 }

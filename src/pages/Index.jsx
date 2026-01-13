@@ -40,7 +40,8 @@ function Index() {
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-700 shadow-lg transition-all duration-300 animate-fade-in"
+          className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 bg-[#00ce8c] 
+          hover:bg-[#00a870] shadow-lg transition-all duration-300 animate-fade-in"
           size="icon"
         >
           <ChevronUp className="h-5 w-5" />
